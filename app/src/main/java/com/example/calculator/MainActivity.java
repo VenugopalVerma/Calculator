@@ -16,11 +16,8 @@ public class MainActivity extends AppCompatActivity {
     String num2 = "0",num = "0";
     boolean aBoolean = false;
 
-//    BigDecimal operand1 = new BigDecimal("0");
-//    BigDecimal operand2 = new BigDecimal("0");
     BigDecimal result = new BigDecimal("0");
     char operator = '+';
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -178,10 +175,8 @@ public class MainActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                
                 if(num.length() > 0)
                 {
-                    //Toast.makeText(MainActivity.this,"correct",Toast.LENGTH_SHORT).show();
                     num = num.substring(0,num.length()-1);
                     screen.setText(num);
                 }
@@ -203,7 +198,6 @@ public class MainActivity extends AppCompatActivity {
                 {
                     operator = '+';
                     screen2.setText(num2 + operator);
-                //    num2 = operation(result.toString(),num2,'+');
                 }
             }
         });
@@ -277,8 +271,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-
     }
 
     String operation(String s1, String s2, char operator)
@@ -287,7 +279,6 @@ public class MainActivity extends AppCompatActivity {
         BigDecimal o2 = new BigDecimal(s2);
         switch(operator)
         {
-
             case '+':
                 result = o2.add(o1);
                 return result.toString();
@@ -311,8 +302,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case '%':
-//                result = o2.add(o1);
-//                return result.toString();
                 break;
         }
         return result.toString();
