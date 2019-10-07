@@ -178,31 +178,13 @@ public class MainActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if(num == "" || num == null || num == "\0" || num.isEmpty())
-//                {
-//                    num = "0";
-//                    screen.setText(num);
-//                    Toast toast = Toast.makeText(MainActivity.this,"Enter something",Toast.LENGTH_LONG);
-//
-//                    View view = toast.getView();
-//
-//                    TextView textView = view.findViewById(android.R.id.message);
-//                    textView.setTextColor(Color.CYAN);
-//
-//                    toast.show();
-//                }
-//                else
+//                
                 if(num.length() > 0)
                 {
                     //Toast.makeText(MainActivity.this,"correct",Toast.LENGTH_SHORT).show();
                     num = num.substring(0,num.length()-1);
                     screen.setText(num);
                 }
-//                else
-//                {
-//                    num = "0";
-//                    screen.setText(num);
-//                }
             }
         });
 
