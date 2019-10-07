@@ -14,8 +14,6 @@ public class MainActivity extends AppCompatActivity {
 
     TextView add,subs,equal,multiply,divide,mod,back,clear,decimal,zero,one,two,three,four,five,six,seven,eight,nine,screen,screen2;
     String num2 = "0",num = "0";
-    boolean aBoolean = false;
-
     BigDecimal result = new BigDecimal("0");
     char operator = '+';
 
@@ -267,7 +265,6 @@ public class MainActivity extends AppCompatActivity {
                     num = result.toString();
                     operator = '+';
                     screen2.setText("");
-                    //aBoolean = true;
                 }
             }
         });
