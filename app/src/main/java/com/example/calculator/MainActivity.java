@@ -272,6 +272,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(num.length() > 0) {
+                    if(!num.equals(".")) {
+                        num2 = operation(num, num2, operator);
+                        operator = '%';
+                        num = "";
+                        display = num2 + operator;
+                        screen2.setText(display);
+                        screen.setText(num);
+                    }
+                }
+                else
+                {
+                    operator = '%';
+                    display = num2 + operator;
+                    screen2.setText(display);
+                }
+            }
+        });
+
         equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -323,8 +345,13 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case '%':
-                result = o2.remainder(o1);
-                return result.toString();
+                if(o1.equals(new BigDecimal("0"))){
+                    Toast.makeText(MainActivity.this,"Cannot divide",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    result = o2.remainder(o1);
+                    return result.toString();
+                }
         }
         return result.toString();
     }
