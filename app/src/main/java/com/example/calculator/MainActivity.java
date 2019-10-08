@@ -1,23 +1,18 @@
 package com.example.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView add,subs,equal,multiply,divide,mod,back,clear,decimal,zero,one,two,three,four,five,six,seven,eight,nine,screen,screen2;
     String num2 = "0",num = "0";
-    boolean aBoolean = false;
-
-//    BigDecimal operand1 = new BigDecimal("0");
-//    BigDecimal operand2 = new BigDecimal("0");
     BigDecimal result = new BigDecimal("0");
     char operator = '+';
 
@@ -27,32 +22,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        add = (TextView) findViewById(R.id.add);
-        subs = (TextView) findViewById(R.id.substract);
-        equal = (TextView) findViewById(R.id.equalTo);
-        multiply = (TextView) findViewById(R.id.multiply);
-        divide = (TextView) findViewById(R.id.divide);
-        mod = (TextView) findViewById(R.id.mod);
-        back = (TextView) findViewById(R.id.back);
-        clear = (TextView) findViewById(R.id.clear);
-        decimal = (TextView) findViewById(R.id.decimal);
-        zero = (TextView) findViewById(R.id.zero);
-        one = (TextView) findViewById(R.id.one);
-        two = (TextView) findViewById(R.id.two);
-        three = (TextView) findViewById(R.id.three);
-        four = (TextView) findViewById(R.id.four);
-        five = (TextView) findViewById(R.id.five);
-        six = (TextView) findViewById(R.id.six);
-        seven = (TextView) findViewById(R.id.seven);
-        eight = (TextView) findViewById(R.id.eight);
-        nine = (TextView) findViewById(R.id.nine);
-        screen = (TextView) findViewById(R.id.screen);
-        screen2 = (TextView) findViewById(R.id.screen2);
+        add = findViewById(R.id.add);
+        subs = findViewById(R.id.substract);
+        equal = findViewById(R.id.equalTo);
+        multiply = findViewById(R.id.multiply);
+        divide = findViewById(R.id.divide);
+        mod = findViewById(R.id.mod);
+        back = findViewById(R.id.back);
+        clear = findViewById(R.id.clear);
+        decimal = findViewById(R.id.decimal);
+        zero = findViewById(R.id.zero);
+        one = findViewById(R.id.one);
+        two = findViewById(R.id.two);
+        three = findViewById(R.id.three);
+        four = findViewById(R.id.four);
+        five = findViewById(R.id.five);
+        six = findViewById(R.id.six);
+        seven = findViewById(R.id.seven);
+        eight = findViewById(R.id.eight);
+        nine = findViewById(R.id.nine);
+        screen = findViewById(R.id.screen);
+        screen2 = findViewById(R.id.screen2);
 
         zero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(num != "0"){
+                if(!num.equals("0")){
                     num = num + "0";
                     screen.setText("" + num);
                 }
@@ -62,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (num == "0")
+                if (num.equals("0"))
                 {num = "";}
                 num = num + "1";
                 screen.setText("" + num);
@@ -72,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (num == "0")
+                if (num.equals("0"))
                 {num = "";}
                 num = num + "2";
                 screen.setText("" + num);
@@ -82,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         three.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (num == "0")
+                if (num.equals("0"))
                 {num = "";}
                 num = num + "3";
                 screen.setText("" + num);
@@ -92,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         four.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (num == "0")
+                if (num.equals("0"))
                 {num = "";}
                 num = num + "4";
                 screen.setText("" + num);
@@ -102,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         five.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (num == "0")
+                if (num.equals("0"))
                 {num = "";}
                 num = num + "5";
                 screen.setText("" + num);
@@ -112,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         six.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (num == "0")
+                if (num.equals("0"))
                 {num = "";}
                 num = num + "6";
                 screen.setText("" + num);
@@ -122,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         seven.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (num == "0")
+                if (num.equals("0"))
                 {num = "";}
                 num = num + "7";
                 screen.setText("" + num);
@@ -132,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         eight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (num == "0")
+                if (num.equals("0"))
                 {num = "";}
                 num = num + "8";
                 screen.setText("" + num);
@@ -142,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
         nine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (num == "0")
+                if (num.equals("0"))
                 {num = "";}
                 num = num + "9";
                 screen.setText("" + num);
@@ -152,9 +147,9 @@ public class MainActivity extends AppCompatActivity {
         decimal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(num.contains(".") == false) {
+                if(!num.contains(".")) {
 
-                    if (num == "0") {
+                    if (num.equals("0")) {
                         num = "";
                     }
                     num = num + ".";
@@ -178,31 +173,13 @@ public class MainActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if(num == "" || num == null || num == "\0" || num.isEmpty())
-//                {
-//                    num = "0";
-//                    screen.setText(num);
-//                    Toast toast = Toast.makeText(MainActivity.this,"Enter something",Toast.LENGTH_LONG);
 //
-//                    View view = toast.getView();
-//
-//                    TextView textView = view.findViewById(android.R.id.message);
-//                    textView.setTextColor(Color.CYAN);
-//
-//                    toast.show();
-//                }
-//                else
                 if(num.length() > 0)
                 {
-                    //Toast.makeText(MainActivity.this,"correct",Toast.LENGTH_SHORT).show();
                     num = num.substring(0,num.length()-1);
                     screen.setText(num);
                 }
-//                else
-//                {
-//                    num = "0";
-//                    screen.setText(num);
-//                }
+//
             }
         });
 
@@ -211,17 +188,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(num.length() > 0)
                 {
-                    num2 = operation(num, num2, operator);
-                    operator = '+';
-                    num = "";
-                    screen2.setText(num2 + operator);
-                    screen.setText(num);
+                    if(!num.equals(".")) {
+                        num2 = operation(num, num2, operator);
+                        operator = '+';
+                        num = "";
+                        screen2.setText(num2 + operator);
+                        screen.setText(num);
+                    }
                 }
                 else
                 {
                     operator = '+';
                     screen2.setText(num2 + operator);
-                //    num2 = operation(result.toString(),num2,'+');
                 }
             }
         });
@@ -230,11 +208,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(num.length() > 0) {
-                    num2 = operation(num, num2, operator);
-                    operator = '-';
-                    num = "";
-                    screen2.setText(num2 + operator);
-                    screen.setText(num);
+                    if(!num.equals(".")) {
+                        num2 = operation(num, num2, operator);
+                        operator = '-';
+                        num = "";
+                        screen2.setText(num2 + operator);
+                        screen.setText(num);
+                    }
                 }
                 else
                 {
@@ -248,15 +228,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(num.length() > 0) {
-                    num2 = operation(num, num2, operator);
-                    operator = '*';
-                    num = "";
-                    screen2.setText(num2 + operator);
-                    screen.setText(num);
+                    if(!num.equals(".")) {
+                        num2 = operation(num, num2, operator);
+                        operator = 'x';
+                        num = "";
+                        screen2.setText(num2 + operator);
+                        screen.setText(num);
+                    }
                 }
                 else
                 {
-                    operator = '*';
+                    operator = 'x';
                     screen2.setText(num2 + operator);
                 }
             }
@@ -265,12 +247,14 @@ public class MainActivity extends AppCompatActivity {
         divide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(num != "0" && num.length() > 0) {
-                    num2 = operation(num, num2, operator);
-                    operator = '/';
-                    num = "";
-                    screen2.setText(num2 + operator);
-                    screen.setText(num);
+                if(!num.equals("0") && num.length() > 0) {
+                    if(!num.equals(".")) {
+                        num2 = operation(num, num2, operator);
+                        operator = '/';
+                        num = "";
+                        screen2.setText(num2 + operator);
+                        screen.setText(num);
+                    }
                 }
                 else
                 {
@@ -285,13 +269,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (num.length() != 0)
                 {
-                    operation(num, num2, operator);
-                    screen.setText("" + result);
-                    num2 = "0";
-                    num = result.toString();
-                    operator = '+';
-                    screen2.setText("");
-                    //aBoolean = true;
+                    if(!num.equals(".")) {
+                        operation(num, num2, operator);
+                        screen.setText("" + result);
+                        num2 = "0";
+                        num = result.toString();
+                        operator = '+';
+                        screen2.setText("");
+                    }
                 }
             }
         });
@@ -314,7 +299,7 @@ public class MainActivity extends AppCompatActivity {
                 result = o2.subtract(o1);
                 return result.toString();
 
-            case '*':
+            case 'x':
                 result = o2.multiply(o1);
                 return result.toString();
 
@@ -323,15 +308,14 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this,"Cannot divide",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    result = o2.divide(o1);
+                    result = o2.divide(o1, RoundingMode.HALF_EVEN);
                     return result.toString();
                 }
                 break;
 
             case '%':
-//                result = o2.add(o1);
-//                return result.toString();
-                break;
+                result = o2.remainder(o1);
+                return result.toString();
         }
         return result.toString();
     }
