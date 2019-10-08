@@ -12,7 +12,7 @@ import java.math.RoundingMode;
 public class MainActivity extends AppCompatActivity {
 
     TextView add,subs,equal,multiply,divide,mod,back,clear,decimal,zero,one,two,three,four,five,six,seven,eight,nine,screen,screen2;
-    String num2 = "0",num = "0";
+    String num2 = "0",num = "0",display;
     BigDecimal result = new BigDecimal("0");
     char operator = '+';
 
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(!num.equals("0")){
                     num = num + "0";
-                    screen.setText("" + num);
+                    screen.setText(num);
                 }
             }
         });
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 if (num.equals("0"))
                 {num = "";}
                 num = num + "1";
-                screen.setText("" + num);
+                screen.setText(num);
             }
         });
 
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 if (num.equals("0"))
                 {num = "";}
                 num = num + "2";
-                screen.setText("" + num);
+                screen.setText(num);
             }
         });
 
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 if (num.equals("0"))
                 {num = "";}
                 num = num + "3";
-                screen.setText("" + num);
+                screen.setText(num);
             }
         });
 
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 if (num.equals("0"))
                 {num = "";}
                 num = num + "4";
-                screen.setText("" + num);
+                screen.setText(num);
             }
         });
 
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 if (num.equals("0"))
                 {num = "";}
                 num = num + "5";
-                screen.setText("" + num);
+                screen.setText(num);
             }
         });
 
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 if (num.equals("0"))
                 {num = "";}
                 num = num + "6";
-                screen.setText("" + num);
+                screen.setText(num);
             }
         });
 
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                 if (num.equals("0"))
                 {num = "";}
                 num = num + "7";
-                screen.setText("" + num);
+                screen.setText(num);
             }
         });
 
@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                 if (num.equals("0"))
                 {num = "";}
                 num = num + "8";
-                screen.setText("" + num);
+                screen.setText(num);
             }
         });
 
@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                 if (num.equals("0"))
                 {num = "";}
                 num = num + "9";
-                screen.setText("" + num);
+                screen.setText(num);
             }
         });
 
@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
                         num = "";
                     }
                     num = num + ".";
-                    screen.setText("" + num);
+                    screen.setText(num);
                 }
             }
         });
@@ -192,14 +192,16 @@ public class MainActivity extends AppCompatActivity {
                         num2 = operation(num, num2, operator);
                         operator = '+';
                         num = "";
-                        screen2.setText(num2 + operator);
+                        display = num2 + operator;
+                        screen2.setText(display);
                         screen.setText(num);
                     }
                 }
                 else
                 {
                     operator = '+';
-                    screen2.setText(num2 + operator);
+                    display = num2 + operator;
+                    screen2.setText(display);
                 }
             }
         });
@@ -212,14 +214,16 @@ public class MainActivity extends AppCompatActivity {
                         num2 = operation(num, num2, operator);
                         operator = '-';
                         num = "";
-                        screen2.setText(num2 + operator);
+                        display = num2 + operator;
+                        screen2.setText(display);
                         screen.setText(num);
                     }
                 }
                 else
                 {
                     operator = '-';
-                    screen2.setText(num2 + operator);
+                    display = num2 + operator;
+                    screen2.setText(display);
                 }
             }
         });
@@ -232,14 +236,16 @@ public class MainActivity extends AppCompatActivity {
                         num2 = operation(num, num2, operator);
                         operator = 'x';
                         num = "";
-                        screen2.setText(num2 + operator);
+                        display = num2 + operator;
+                        screen2.setText(display);
                         screen.setText(num);
                     }
                 }
                 else
                 {
                     operator = 'x';
-                    screen2.setText(num2 + operator);
+                    display = num2 + operator;
+                    screen2.setText(display);
                 }
             }
         });
@@ -252,14 +258,16 @@ public class MainActivity extends AppCompatActivity {
                         num2 = operation(num, num2, operator);
                         operator = '/';
                         num = "";
-                        screen2.setText(num2 + operator);
+                        display = num2 + operator;
+                        screen2.setText(display);
                         screen.setText(num);
                     }
                 }
                 else
                 {
                     operator = '/';
-                    screen2.setText(num2 + operator);
+                    display = num2 + operator;
+                    screen2.setText(display);
                 }
             }
         });
@@ -271,7 +279,8 @@ public class MainActivity extends AppCompatActivity {
                 {
                     if(!num.equals(".")) {
                         operation(num, num2, operator);
-                        screen.setText("" + result);
+                        display = "" + result;
+                        screen.setText(display);
                         num2 = "0";
                         num = result.toString();
                         operator = '+';
