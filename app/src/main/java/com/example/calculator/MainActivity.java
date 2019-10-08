@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     String num2 = "0",num = "0",display;
     BigDecimal result = new BigDecimal("0");
     char operator = '+';
+    boolean aBoolean = false;
 
 
     @Override
@@ -47,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
         zero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(aBoolean){
+                    aBoolean = false;
+                    num = "0";
+                }
                 if(!num.equals("0")){
                     num = num + "0";
                     screen.setText(num);
@@ -57,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
         one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(aBoolean){
+                    aBoolean = false;
+                    num = "0";
+                }
                 if (num.equals("0"))
                 {num = "";}
                 num = num + "1";
@@ -67,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
         two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(aBoolean){
+                    aBoolean = false;
+                    num = "0";
+                }
                 if (num.equals("0"))
                 {num = "";}
                 num = num + "2";
@@ -77,6 +90,10 @@ public class MainActivity extends AppCompatActivity {
         three.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(aBoolean){
+                    aBoolean = false;
+                    num = "0";
+                }
                 if (num.equals("0"))
                 {num = "";}
                 num = num + "3";
@@ -87,6 +104,10 @@ public class MainActivity extends AppCompatActivity {
         four.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(aBoolean){
+                    aBoolean = false;
+                    num = "0";
+                }
                 if (num.equals("0"))
                 {num = "";}
                 num = num + "4";
@@ -97,6 +118,10 @@ public class MainActivity extends AppCompatActivity {
         five.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(aBoolean){
+                    aBoolean = false;
+                    num = "0";
+                }
                 if (num.equals("0"))
                 {num = "";}
                 num = num + "5";
@@ -107,6 +132,10 @@ public class MainActivity extends AppCompatActivity {
         six.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(aBoolean){
+                    aBoolean = false;
+                    num = "0";
+                }
                 if (num.equals("0"))
                 {num = "";}
                 num = num + "6";
@@ -117,6 +146,10 @@ public class MainActivity extends AppCompatActivity {
         seven.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(aBoolean){
+                    aBoolean = false;
+                    num = "0";
+                }
                 if (num.equals("0"))
                 {num = "";}
                 num = num + "7";
@@ -127,6 +160,10 @@ public class MainActivity extends AppCompatActivity {
         eight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(aBoolean){
+                    aBoolean = false;
+                    num = "0";
+                }
                 if (num.equals("0"))
                 {num = "";}
                 num = num + "8";
@@ -137,6 +174,10 @@ public class MainActivity extends AppCompatActivity {
         nine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(aBoolean){
+                    aBoolean = false;
+                    num = "0";
+                }
                 if (num.equals("0"))
                 {num = "";}
                 num = num + "9";
@@ -147,6 +188,10 @@ public class MainActivity extends AppCompatActivity {
         decimal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(aBoolean){
+                    aBoolean = false;
+                    num = "0";
+                }
                 if(!num.contains(".")) {
 
                     if (num.equals("0")) {
@@ -297,6 +342,7 @@ public class MainActivity extends AppCompatActivity {
         equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                aBoolean = true;
                 if (num.length() != 0)
                 {
                     if(!num.equals(".")) {
