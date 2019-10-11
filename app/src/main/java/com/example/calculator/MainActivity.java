@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     BigDecimal result = new BigDecimal("0");
     char operator = '+';
     boolean aBoolean = false;
+    String test = "this is for testing ";
 
 
     @Override
